@@ -1,0 +1,55 @@
+{
+  "name": "test-dev-sogeti",
+  "version": "1.0.0",
+  "description": "Sogeti's development exam task",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev:server": "nodemon --exec babel-node src/server/server.js --ignore dist/",
+    "dev:bundler": "webpack -w --mode=development",
+    "dev:start": "npm run dev:bundler & gnome-terminal --tab -- npm run dev:server &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrovandrade/test-dev-sogeti.git"
+  },
+  "keywords": [
+    "Sogeti",
+    "React",
+    "Node",
+    "dev",
+    "exam"
+  ],
+  "author": "Pedro Andrade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedrovandrade/test-dev-sogeti/issues"
+  },
+  "homepage": "https://github.com/pedrovandrade/test-dev-sogeti#readme",
+  "dependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "express": "^4.17.2",
+    "express-react-views": "^0.11.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.6",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "react-test-renderer": "^17.0.2"
+  }
+}
