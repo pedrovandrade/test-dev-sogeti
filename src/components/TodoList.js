@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import TodoItem from 'components/TodoItem';
 import TodoItem from './TodoItem';
 
 export default function TodoList(props) {
+  /** ******** REACT HOOKS ********* */
   const [listData, setListData] = useState(props.listData);
+
+  useEffect(() => {
+    console.log('listData:', listData);
+  }, [listData]);
 
   function deleteItem() {
     console.log('Button clicked!');
-  }
-
-  function checkItem() {
-    console.log('Checkbox clicked!');
   }
 
   return (
@@ -18,8 +19,10 @@ export default function TodoList(props) {
       {listData.map((item, index) => (
         <TodoItem
           data={item}
-          checkItem={checkItem}
           deleteItem={deleteItem}
+          listData={listData}
+          setListData={setListData}
+          index={index}
           key={index}
         />
       ))}
