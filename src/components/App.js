@@ -8,6 +8,8 @@ export default function App(props) {
   const [newTodo, setNewTodo] = useState('');
 
   function addTodo() {
+    if (newTodo === '') return; // Don't insert an empty string
+
     let newUuid = crypto.randomUUID();
     let alreadyExists = !!props.listData.find(item => item.uuid === newUuid);
     while (alreadyExists) {

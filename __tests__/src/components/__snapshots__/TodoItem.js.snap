@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/TodoItem.js should render correctly 1`] = `
+<li>
+  <label>
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <a
+      href="/details/8348db18-83ba-11ec-a8a3-0242ac120002"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <div
+        className="todo-item"
+      >
+        Do groceries
+      </div>
+    </a>
+    <button
+      className="delete-button"
+      onClick={[Function]}
+      type="button"
+    />
+  </label>
+</li>
+`;

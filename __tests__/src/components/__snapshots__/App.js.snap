@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/App.js should render correctly 1`] = `
+<div
+  className="list-container"
+>
+  <h1
+    className="list-title"
+  >
+    My todo list
+  </h1>
+  <input
+    onInput={[Function]}
+    placeholder="What do you want to do?"
+    type="text"
+    value=""
+  />
+  <button
+    id="add-button"
+    onClick={[Function]}
+  >
+    Add
+  </button>
+  <ul>
+    <li>
+      <label>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <a
+          href="/details/8348db18-83ba-11ec-a8a3-0242ac120002"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "black",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <div
+            className="todo-item"
+          >
+            Do groceries
+          </div>
+        </a>
+        <button
+          className="delete-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </label>
+    </li>
+    <li>
+      <label>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <a
+          href="/details/9c377382-83ba-11ec-a8a3-0242ac120002"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "black",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <div
+            className="todo-item"
+          >
+            Wash car
+          </div>
+        </a>
+        <button
+          className="delete-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </label>
+    </li>
+    <li>
+      <label>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <a
+          href="/details/a081b5ec-83ba-11ec-a8a3-0242ac120002"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "black",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <div
+            className="todo-item"
+          >
+            Clean house
+          </div>
+        </a>
+        <button
+          className="delete-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </label>
+    </li>
+  </ul>
+</div>
+`;

@@ -4,7 +4,7 @@
   "description": "Sogeti's development exam task",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "dev:server": "nodemon --exec babel-node src/server/server.js --ignore dist/",
     "dev:bundler": "webpack -w --mode=development",
     "dev:start": "npm run dev:bundler & gnome-terminal --tab -- npm run dev:server &"
@@ -42,6 +42,7 @@
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.4.6",
     "eslint": "^8.8.0",
