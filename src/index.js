@@ -45,8 +45,8 @@ axios.get('/public/data/todo-list.json', { responseType: 'json' }).then((respons
   ReactDOM.render(
     <BrowserRouter>
       <Routes>
-        <Route path={window.location.pathname} element={<App listData={response.data} />} />
-        <Route path={`${window.location.pathname}details/*`} element={<Details listData={response.data} />} />
+        <Route path='/test-dev-sogeti/' element={<App listData={response.data} />} />
+        <Route path='/test-dev-sogeti/details/*' element={<Details listData={response.data} />} />
         <Route path='*' element={
           <main><h2>Error 404</h2><p>URL not found</p></main>
         } />
