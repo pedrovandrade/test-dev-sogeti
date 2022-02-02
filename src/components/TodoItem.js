@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 export default function TodoItem(props) {
   /** ******** REACT HOOKS ********* */
@@ -43,13 +44,15 @@ export default function TodoItem(props) {
     }
   }, [props.listData]);
 
-  return (
-    <li>
-      <label>
-        <input type='checkbox' onChange={checkItem} checked={props.data.state === 'done'} />
-        <div className={`todo-item${props.data.state === 'done' ? ' checked' : ''}`} onClick={(e) => e.preventDefault()}>{props.data.title}</div>
-        <button className='delete-button' type='button' onClick={props.deleteItem} ></button>
-      </label>
-    </li>
-  );
+    return (
+      <li>
+        <label>
+          <input type='checkbox' onChange={checkItem} checked={props.data.state === 'done'} />
+          <Link to={`/details/${props.data.uuid}`} style={{ color: 'black', textDecoration: 'none' }}>
+            <div className={`todo-item${props.data.state === 'done' ? ' checked' : ''}`}>{props.data.title}</div>
+          </Link>
+          <button className='delete-button' type='button' onClick={props.deleteItem} ></button>
+        </label>
+      </li>
+    );
 }

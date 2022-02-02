@@ -32,6 +32,11 @@ body {
   text-decoration: line-through;
 }
 
+.description {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
 li {
   position: relative;
   display: flex;

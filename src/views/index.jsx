@@ -5,7 +5,6 @@ export default function Layout(props) {
     <html>
       <head>
         <meta charSet="utf-8" />
-        <base href='/'></base>
         <link rel='icon' href='images/sogeti.ico' />
         <link rel='stylesheet' href='style/master.css' />
         <title>{props.title}</title>
