@@ -18,35 +18,15 @@ axios.get('/public/data/todo-list.json', { responseType: 'json' }).then((respons
     </BrowserRouter>,
     document.getElementById('root'),
   );
-}).catch((err) => {
-  // throw new Error(err);
-  const response = {
-    "data": [
-      {
-        "title": "Do groceries",
-        "state": "todo",
-        "description": "Go to the supermarket and buy eggs, butter, sugar, fruits, soap and toillete paper",
-        "uuid": "8348db18-83ba-11ec-a8a3-0242ac120002"
-      },
-      {
-        "title": "Wash car",
-        "state": "todo",
-        "description": "Take the car to the gas station and leave it there for 30 minutes in the express washing",
-        "uuid": "9c377382-83ba-11ec-a8a3-0242ac120002"
-      },
-      {
-        "title": "Clean house",
-        "state": "todo",
-        "description": "Pass vaccum, clean the surfaces, clean the toillete and pass water on the floor",
-        "uuid": "a081b5ec-83ba-11ec-a8a3-0242ac120002"
-      }
-  ]};
-
+}).catch(() => { // For GitHub Pages
+  const githubAddress = 'https://raw.githubusercontent.com/pedrovandrade/test-dev-sogeti/main/public/data/todo-list.json';
+  return axios.get(githubAddress, { responseType: 'json' });
+}).then((response) => {
   ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path='/test-dev-sogeti/' element={<App listData={response.data} />} />
-        <Route path='/test-dev-sogeti/details/*' element={<Details listData={response.data} />} />
+        <Route path='/details/*' element={<Details listData={response.data} />} />
         <Route path='*' element={
           <main><h2>Error 404</h2><p>URL not found</p></main>
         } />
