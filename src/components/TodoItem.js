@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function TodoItem(props) {
   /** ******** REACT HOOKS ********* */
   const [done, setDone] = useState(false);
+  const [pageLoaded, setPageLoaded] = useState(false);
 
   function checkItem(event) {
     if (event.target.checked) {
@@ -14,9 +15,16 @@ export default function TodoItem(props) {
   }
 
   /** ******** REACT EFFECTS ******** */
+  // Page load
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
+
   // Throw the checked item at the bottom of the list if done or at the top if
   // it's still to do
   useEffect(() => {
+    if (!pageLoaded) return; // To prevent useEffect calls from page load
+    
     const index = props.index;
     const checkedElem = props.listData[index];
     if (done) {
