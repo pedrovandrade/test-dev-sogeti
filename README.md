@@ -2,6 +2,11 @@
 Repository with Sogeti's development exam task. It can be visualized on [GitHubPages](https://pedrovandrade.github.io/test-dev-sogeti/) through a static (no back-end) version of the code, as GitHub Pages doesn't execute server code.
 
 ## Start script
+Before start executing the application, it's necessary to install the dependencies. Simply enter the command:
+```
+npm install
+```
+
 To execute the program on dev mode (Unix systems only), enter command:
 ```
 npm run start:dev
