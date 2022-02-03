@@ -4,7 +4,7 @@
   "description": "Sogeti's development exam task",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --verbose --env=jsdom",
     "dev:server": "nodemon --exec babel-node src/server/server.js --ignore dist/",
     "dev:bundler": "webpack -w --mode=development",
     "dev:start": "npm run dev:bundler & gnome-terminal --tab -- npm run dev:server &",
