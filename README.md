@@ -31,3 +31,6 @@ npm run prod:bundler
 ```
 npm run prod:server
 ```
+
+Once the bundled script is generated and the server is running, you can access the page on:
+http://localhost:4000/
