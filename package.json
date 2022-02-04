@@ -45,7 +45,9 @@
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.3",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.4.6",
     "eslint": "^8.8.0",

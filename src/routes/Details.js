@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 export default function Details(props) {
   const uuid = useLocation().pathname.split('/')[2];
+  console.warn('useLocation():', useLocation());
   const info = props.listData.find((obj) => obj.uuid === uuid) || {};
 
   return (

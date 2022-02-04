@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import renderer from 'react-test-renderer';
 import TodoItem from '../../../src/components/TodoItem';
+import { render, fireEvent, getByRole, queryByText } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('src/components/TodoItem.js', () => {
@@ -24,6 +25,23 @@ describe('src/components/TodoItem.js', () => {
       uuid: 'a081b5ec-83ba-11ec-a8a3-0242ac120002'
     }
   ];
+  let container;
+
+  // Do a wrapper for the component
+  function TodoItemtMock(props) {
+    const [listData, setListData] = useState(mockList);
+    return (
+      <
+        TodoItem
+        data={listData[props.index]}
+        deleteItem={() => null}
+        listData={listData}
+        setListData={setListData}
+        index={props.index}
+        key={props.index}
+        />
+      );
+  }
 
   it('should expose a function component', () => {
     expect(TodoItem).toBeInstanceOf(Function);
@@ -32,7 +50,8 @@ describe('src/components/TodoItem.js', () => {
     const tree = renderer
     .create(
       <MemoryRouter>
-        <TodoItem
+        <
+          TodoItem
           data={mockList[0]}
           deleteItem={() => null}
           listData={mockList}
@@ -45,5 +64,74 @@ describe('src/components/TodoItem.js', () => {
     .toJSON();
 
     expect(tree).toMatchSnapshot();
+  });
+  describe('When the app start', () => {
+    beforeEach(() => {
+      container = render(
+        <MemoryRouter>
+          <TodoItemtMock index={0} />
+        </MemoryRouter>
+      ).container;
+    });
+    it('should have a todo item with title displayed and NOT crossed out', () => {
+      const title = queryByText(container, mockList[0].title);
+      expect(title).not.toBeNull();
+      expect(title.classList.contains('checked')).toBe(false);
+    });
+    it('should have an unchecked checkbox for the item', () => {
+      const checkbox = getByRole(container, 'checkbox');
+      expect(checkbox.checked).toBe(false);
+    });
+    it('should have a link for the item to see its description', () => {
+      const link = getByRole(container, 'link');
+      expect(link.pathname).toBe(`/details/${mockList[0].uuid}`);
+    });
+  });
+  describe('When the item\'s checkbox is checked and the item is NOT the last', () => {
+    beforeEach(() => {
+      container = render(
+        <MemoryRouter>
+          <TodoItemtMock index={0} />
+        </MemoryRouter>
+      ).container;
+    })
+    it('should change its title towards the next one on the list', () => {
+      const checkbox = getByRole(container, 'checkbox');
+      fireEvent.click(checkbox);
+      const title = queryByText(container, mockList[1].title);
+      expect(title).not.toBeNull();
+      expect(title.classList.contains('checked')).toBe(false);
+    });
+  });
+  describe('When the item\'s checkbox is checked and the item is the last', () => {
+    beforeEach(() => {
+      container = render(
+        <MemoryRouter>
+          <TodoItemtMock index={2} />
+        </MemoryRouter>
+      ).container;
+    })
+    it('should keep its title and being crossed out', () => {
+      const checkbox = getByRole(container, 'checkbox');
+      fireEvent.click(checkbox);
+      const title = queryByText(container, mockList[2].title);
+      expect(title).not.toBeNull();
+      expect(title.classList.contains('checked')).toBe(true);
+    });
+  });
+  describe('When the item\'s checkbox is unchecked', () => {
+    beforeEach(() => {
+      container = render(
+        <MemoryRouter>
+          <TodoItemtMock index={2} />
+        </MemoryRouter>
+      ).container;
+    })
+    it('should change its title towards the previous unchecked one on the list', () => {
+      const checkbox = getByRole(container, 'checkbox');
+      fireEvent.click(checkbox);
+      let title = queryByText(container, mockList[1].title);
+      expect(title).not.toBeNull();
+    });
   });
 });

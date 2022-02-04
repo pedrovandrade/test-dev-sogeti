@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/TodoItem.js should render correctly 1`] = `
+<div
+  className="list-container"
+>
+  <h1
+    className="list-title"
+  >
+    No title
+  </h1>
+  <p
+    className="description"
+  >
+    No description
+  </p>
+</div>
+`;
