@@ -24,7 +24,7 @@ export default function TodoItem(props) {
   // it's still to do
   useEffect(() => {
     if (!pageLoaded) return; // To prevent useEffect calls from page load
-    
+
     const index = props.index;
     const checkedElem = props.listData[index];
     if (done) {
@@ -54,13 +54,12 @@ export default function TodoItem(props) {
 
     return (
       <li>
-        <label>
-          <input type='checkbox' onChange={checkItem} checked={props.data.state === 'done'} />
-          <Link to={`/details/${props.data.uuid}`} style={{ color: 'black', textDecoration: 'none' }}>
-            <div className={`todo-item${props.data.state === 'done' ? ' checked' : ''}`}>{props.data.title}</div>
-          </Link>
-          <button className='delete-button' type='button' onClick={props.deleteItem} ></button>
-        </label>
+        <input type='checkbox' id={`item-box-${props.index}`} onChange={checkItem} checked={props.data.state === 'done'} />
+        <label className='fake-checkbox' htmlFor={`item-box-${props.index}`} ></label>
+        <Link to={`/details/${props.data.uuid}`} style={{ color: 'black', textDecoration: 'none' }}>
+          <div className={`todo-item${props.data.state === 'done' ? ' checked' : ''}`}>{props.data.title}</div>
+        </Link>
+        <button className='delete-button' type='button' onClick={props.deleteItem} ></button>
       </li>
     );
 }
