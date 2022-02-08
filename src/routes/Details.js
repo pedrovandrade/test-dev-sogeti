@@ -9,7 +9,7 @@ export default function Details(props) {
     <div className='list-container' >
     <div className='test'>
       <h1 className='list-title' >{info.title || 'No title'}</h1>
-      <Link to={'/'} >
+      <Link to={`/${props.pathPrefix}`} >
         <button id='back-button' ><div className='arrow' ></div>Back</button>
       </Link>
       </div>

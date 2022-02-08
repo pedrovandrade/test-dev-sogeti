@@ -17,7 +17,7 @@ function Wrapper(props) {
     <BrowserRouter>
       <Routes>
         <Route path={`/${props.pathPrefix}`} element={<App listData={listData} setListData={setListData} />} />
-        <Route path='/details/*' element={<Details listData={listData} />} />
+        <Route path='/details/*' element={<Details listData={listData} pathPrefix={props.pathPrefix} />} />
         <Route path='*' element={
           <main><h2>Error 404</h2><p>URL not found</p></main>
         } />
