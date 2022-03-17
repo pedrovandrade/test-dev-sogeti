@@ -10,11 +10,10 @@ body {
 }
 
 .list-container {
-  /*background-color: blue;*/ /* for debug*/
   border: solid #cccccc;
   border-width: 5px;
   padding: 20px 40px;
-  width: 500px;
+  width: 550px;
 }
 
 .list-title {
@@ -24,7 +23,7 @@ body {
 
 .todo-item {
   font-family: Arial, sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   padding: 0px 20px;
 }
 
@@ -81,8 +80,9 @@ input[type="checkbox"]:checked ~ label::after {
   width: 12px;
   border-bottom: 7px solid #78b13f;
   border-right: 7px solid #78b13f;
-  top: -8px;
+  top: -7px;
   left: -18px;
+  margin-right: -15px;
 }
 
 input[type=text] {
@@ -165,12 +165,13 @@ input[type=text] {
 }
 
 .delete-button {
-  position: absolute;
-  right: 30px;
+  position: relative;
   margin-left: auto;
   margin-right: 0;
   height: 30px;
-  width: 30px;
+  flex-basis: 30px;
+  flex-grow: 0;
+  flex-shrink: 0;
   border: 1px solid;
   border-radius: 50%;
   border-color: #aaaaaa;
@@ -178,6 +179,7 @@ input[type=text] {
   text-decoration: none;
   cursor: default;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .delete-button::before {
@@ -204,7 +206,7 @@ input[type=text] {
 
 .delete-button:hover {
   border-color: #ff0000;
-  background-color: #ff0000;
+  background-color: #ff8888;
   color: #dddddd;
   transition: #dddddd .3s ease-in-out;
 }

@@ -22,7 +22,7 @@ export default function App(props) {
   const [newTodo, setNewTodo] = useState('');
 
   function addTodo() {
-    if (newTodo === '') return; // Don't insert an empty string
+    if (newTodo === '' || !!newTodo.match(/\s*/)[0]) return; // Don't insert an empty string or only spaces
 
     let newUuid = generateUUID();
     let alreadyExists = !!props.listData.find(item => item.uuid === newUuid);
